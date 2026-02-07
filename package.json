@@ -2,6 +2,7 @@
   "name": "family_alter",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://pksi.github.io/family_altar",
   "type": "module",
   "scripts": {
     "dev": "vite",
