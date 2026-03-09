@@ -7,11 +7,12 @@ import './App.css';
 
 const STORAGE_KEYS = {
   HISTORY: 'family_alter_history',
-  STORY_INDEX: 'family_alter_story_index'
+  STORY_INDEX: 'family_alter_story_index',
+  WORSHIP_INDEX: 'family_alter_worship_index'
 };
 
 function App() {
-  const [currentWorship, setCurrentWorship] = useState(null);
+  const [currentWorshipIndex, setCurrentWorshipIndex] = useState(0);
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   const [history, setHistory] = useState([]);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
@@ -19,11 +20,11 @@ function App() {
   useEffect(() => {
     const savedHistory = localStorage.getItem(STORAGE_KEYS.HISTORY);
     const savedStoryIndex = localStorage.getItem(STORAGE_KEYS.STORY_INDEX);
+    const savedWorshipIndex = localStorage.getItem(STORAGE_KEYS.WORSHIP_INDEX);
 
     if (savedHistory) setHistory(JSON.parse(savedHistory));
     if (savedStoryIndex) setCurrentStoryIndex(parseInt(savedStoryIndex, 10));
-
-    pickRandomWorship();
+    if (savedWorshipIndex) setCurrentWorshipIndex(parseInt(savedWorshipIndex, 10));
   }, []);
 
   useEffect(() => {
@@ -34,21 +35,20 @@ function App() {
     localStorage.setItem(STORAGE_KEYS.STORY_INDEX, currentStoryIndex.toString());
   }, [currentStoryIndex]);
 
-  const pickRandomWorship = () => {
-    if (worshipData.length === 0) return;
-    const randomIndex = Math.floor(Math.random() * worshipData.length);
-    setCurrentWorship(worshipData[randomIndex]);
-  };
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.WORSHIP_INDEX, currentWorshipIndex.toString());
+  }, [currentWorshipIndex]);
+
+  const currentWorship = worshipData[currentWorshipIndex % worshipData.length] || worshipData[0];
 
   const handleNewSession = () => {
     const today = new Date().toLocaleDateString('zh-CN', {
       year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
     });
 
-    pickRandomWorship();
-    const randomWorshipIndex = Math.floor(Math.random() * worshipData.length);
-    const nextWorship = worshipData[randomWorshipIndex]; // Pick fresh
-    setCurrentWorship(nextWorship);
+    const nextWorshipIndex = (currentWorshipIndex + 1) % worshipData.length;
+    setCurrentWorshipIndex(nextWorshipIndex);
+    const nextWorship = worshipData[nextWorshipIndex];
 
     const nextStoryIndex = (currentStoryIndex + 1) % bibleData.length;
     setCurrentStoryIndex(nextStoryIndex);
