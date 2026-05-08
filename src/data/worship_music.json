@@ -1,7 +1,7 @@
 [
   {
-    "name": "我要来大声赞美你",
-    "url": "https://www.youtube.com/watch?v=bhXdXg8m2tE&list=PLhWMv0BKjIa5bu4Eb2KuDelwYOEFZ6QsO&index=4",
+    "name": "Walking with Jesus",
+    "url": "https://youtu.be/vct8pvyJcLs?si=Ums3U094iywjQpY3&t=11",
     "order": 1
   },
   {
@@ -15,8 +15,8 @@
     "order": 3
   },
   {
-    "name": "我们高举耶稣的名",
-    "url": "https://www.youtube.com/watch?v=hI9c_0FqAHI",
+    "name": "In His Time",
+    "url": "https://youtu.be/i8JFzBH2b6A?si=zjgo7JRu0soMS1CB&t=11",
     "order": 4
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "name": "爱是",
-    "url": "https://www.youtube.com/watch?v=ck9buD5Qh_w&list=PLEY_M7xVVeAsG3Ee9-HPCVfG6aWpa3Hcf&index=1",
+    "url": "https://youtu.be/bHacs6Y7RPk?si=IVFjA0iOmY9j3oHB",
     "order": 7
   },
   {
@@ -68,5 +68,10 @@
     "name": "Lord I Need You",
     "url": "https://youtu.be/fYGS1vJH9eE?si=pElRlIeBGNkD8Rjl",
     "order": 14
+  },
+  {
+    "name": "Whisper a prayer",
+    "url": "https://youtu.be/hkXiIgZEbSo?si=S57swR1MHHOmHJp6",
+    "order": 15
   }
 ]
